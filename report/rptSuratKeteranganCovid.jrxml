@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptSuratTidakHamil" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23b08b13-d2ac-4c33-8e4f-a878f29013ec">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="koneksi"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="finger2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select surat_keterangan_covid.no_surat,surat_keterangan_covid.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,spesialis.nm_sps,
+surat_keterangan_covid.kd_dokter,dokter.nm_dokter,surat_keterangan_covid.nip,petugas.nama,surat_keterangan_covid.igm,pasien.tgl_lahir,
+surat_keterangan_covid.igg,surat_keterangan_covid.sehat,surat_keterangan_covid.tidaksehat,surat_keterangan_covid.berlakumulai,
+pasien.jk,pasien.pekerjaan,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,
+surat_keterangan_covid.berlakuselsai from surat_keterangan_covid inner join reg_periksa on surat_keterangan_covid.no_rawat=reg_periksa.no_rawat
+inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis
+inner join dokter on surat_keterangan_covid.kd_dokter=dokter.kd_dokter 
+inner join petugas on surat_keterangan_covid.nip=petugas.nip
+inner join spesialis on dokter.kd_sps=spesialis.kd_sps
+inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel 
+inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec 
+inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab]]>
+	</queryString>
+	<field name="no_surat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_surat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="nm_sps" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_sps"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="spesialis"/>
+	</field>
+	<field name="kd_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kd_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
+	</field>
+	<field name="nip" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nip"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="petugas"/>
+	</field>
+	<field name="igm" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="igm"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tgl_lahir"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="igg" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="igg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="sehat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sehat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="tidaksehat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tidaksehat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="berlakumulai" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="berlakumulai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<field name="jk" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="jk"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="pekerjaan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pekerjaan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alamat"/>
+	</field>
+	<field name="berlakuselsai" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="berlakuselsai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_keterangan_covid"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement x="357" y="252" width="165" height="19" uuid="12752513-5b1b-478f-be3e-6670be037637"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="357" y="271" width="165" height="19" uuid="60338ef0-ff17-4bb7-b0c2-0a57a77e9506"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="192" y="252" width="165" height="19" uuid="7bd6780e-8cee-415a-8951-eb56aabe7074"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="192" y="271" width="165" height="19" uuid="c8e850da-593c-4a9e-b89f-0adf1ddb84da"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="27" y="271" width="165" height="19" uuid="b51664b4-0907-4a73-b763-f266130fbdc8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="27" y="252" width="165" height="19" uuid="2f3267df-537a-4a86-9f5e-00e1dcd09e00"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="9" y="80" width="536" height="16" uuid="817036bb-0262-4c43-9d96-115a46aad6e5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SURAT KETERANGAN HASIL RAPID TEST ANTIGEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="124" width="379" height="15" uuid="24af5128-2f3b-4151-9716-e3017c3d78d8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Menerangkan Bahwa :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="144" width="91" height="13" uuid="8380a0cf-ba0d-4a02-a8ab-e33eb43240ef"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="158" width="91" height="13" uuid="c9452716-eaa5-464c-8015-221b6b86dfc4"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="172" width="91" height="13" uuid="2af5bf91-b0fa-4394-a822-d1ac4930e496"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="200" width="92" height="13" uuid="92cf42c2-7d52-4b56-9077-7c8141bf08c8"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="232" width="476" height="15" uuid="b0ec0c58-aff6-479c-8ab3-0ffb19711868">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dari hasil  pemeriksaan Rapid Test Antigen SARS-Cov-19, dinyatakan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="144" width="11" height="13" uuid="02f064ab-ed6d-4b4c-9880-02509a2b4393"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="158" width="11" height="13" uuid="570367cb-1542-4b20-b976-a3f4fd08a67f"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="172" width="11" height="13" uuid="4e0348d5-c608-4095-ad6b-dc89cd22fbaf"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="200" width="11" height="13" uuid="00dbf7c3-7dd8-4ef4-af29-1c114054a421"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="273" width="160" height="15" uuid="733f7875-fd69-4670-b079-74eb49a99eac">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rapid Test Antigen SARS-Cov-19]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="11" width="551" height="17" uuid="7e624204-96ab-410d-87cf-09a15120aebe"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="8" y="0" width="70" height="70" uuid="bfd5060e-21c0-4117-bfca-f5b6245ec749"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line direction="BottomUp">
+				<reportElement x="8" y="73" width="538" height="1" uuid="33cb5692-51fc-476b-81ba-d603642b877f"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="9" y="98" width="536" height="16" uuid="0dc7359f-036d-4b6b-850a-deb89c75091b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nomor : "+$F{no_surat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="144" width="396" height="13" uuid="e75b5ea2-3c06-4b5b-b91e-da2b3c63ea29">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="130" y="158" width="396" height="13" uuid="54d8f3de-9e35-4cdc-a5ae-b5ea92667116"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="172" width="396" height="13" uuid="404c85a7-c3e1-4d6a-8324-3de70c9b3149"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jk}.replaceAll( "P","Perempuan").replaceAll( "L","Laki-laki")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="200" width="396" height="32" uuid="4451c720-7ba2-48e3-be8c-988f21cf833f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="273" width="160" height="15" uuid="5db90e11-51f5-436d-9f1a-4c5ec5b6ffdd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{igm}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="119" y="186" width="11" height="13" uuid="ed79c664-c53a-4635-a0be-6c46bcdc5927"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="186" width="92" height="13" uuid="a1ad8c39-5e56-4a0a-a4e6-018e33e37028"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pekerjaan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="186" width="396" height="13" uuid="cf1afc3a-f556-44c5-9b59-9e88ee619551"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="352" y="553" width="190" height="21" uuid="89a8b382-2293-49e7-a2e8-e56b9fb0038b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Analis Laboratorium]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="553" width="165" height="21" uuid="4414234e-24d5-409f-bd5f-4aa20b908c7b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Dokter Spesialis Patologi Klinik]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="352" y="627" width="190" height="19" uuid="1e66929e-0db8-4cc6-a0a7-1a1715a4eb8b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="352" y="538" width="190" height="15" uuid="7167fbf4-eb28-48bb-afe6-fb682e3fe056"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+new SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id")).format($F{berlakumulai})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="30" width="551" height="15" uuid="999f4b2d-92f5-48eb-ae67-3620816d8ff2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="46" width="551" height="15" uuid="b4145185-6623-455d-a707-a568a3dbe979">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="334" width="517" height="60" uuid="76123af4-e084-4e30-ade5-7bc9e8f85b4a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1. Jika Hasil Reaktif
+    a. Disertai gejala (demam, berkurangnya kemampuan penciuman, batuk, sesak nafas) segera periksa ke RS rujukan Covid-19.
+    b. Tenpa gejala, segera lakukan karantina atau isolasi mandiri sesuai kriteria dengan menerapkan PHBS (Perilaku Hidup Bersih 
+        & Sehat: Cuci tangan, Menerapkan etika batuk, Selalu menggunakan masker, menjaga stamina & menjaga jarak).
+    c. Dilanjutkan pemeriksaan Swab PCR-SARS-CoV-2. sebagai pemeriksaan konfirmasi.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="313" width="379" height="15" uuid="f87fc2f9-292f-4710-934c-e0d4131f4f17">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Catatan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="254" width="160" height="15" uuid="b5983222-7146-4416-8372-56695294fb96">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="273" width="160" height="15" uuid="78228427-169a-4c93-a71b-4771d2c211bf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NON REAKTIF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="254" width="160" height="15" uuid="27f600bf-fff2-435e-962d-4e34d17dd375">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nilai Rujukan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="254" width="160" height="15" uuid="2f0dd9f5-1822-4848-82f2-801abc3e4eff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Pemeriksaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="518" width="135" height="15" uuid="4af02808-aa32-4128-801a-42271f1d378c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mengetahui]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="476" width="517" height="41" uuid="1ba41f51-97d9-4e00-ace3-c558e21c932a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hasil rapid test antigen tersebut berlaku sejak "+new SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id")).format($F{berlakumulai})+" sampai "+new SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id")).format($F{berlakuselsai})+". "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="627" width="180" height="21" uuid="47922ec3-58e2-471f-b1f5-2201e30d840e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9" isBold="false" isUnderline="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="51" y="642" width="135" height="15" uuid="86337de0-a60f-4de2-b341-5edebcf27037">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[446/SIP-DS/176/424.072/2023]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="395" width="517" height="53" uuid="a4a45249-0769-489f-a584-d8d2acc6cde9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2. Jika Hasil Non Reaktif
+    a. Tidak menyingkirkan kemungkinan terinveksi SARS-CoV-2.
+    b. Apabila pasien bergejala atau di ketahui memiliki kontak dengan orang yg terkonfirmasi Covid-19, maka disarankan
+        pemeriksaan ulang 1x24 jam berikutnya.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="463" width="495" height="13" uuid="6f635c3c-67a6-4c7b-ae51-c17030b09715">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Demikian surat keterangan ini dibuat sesuai dengan kondisi sebenarnya dan untuk dipergunakan sebagaimana mestinya.]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="FixRelativeToBottom" x="209" y="666" width="333" height="33" uuid="f8a84d85-a629-4df3-ab34-d5dd7ffcdcca">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false" barHeight="60" rotation="None">
+					<jr:codeExpression><![CDATA[$F{no_rkm_medis}+" "+$F{nm_pasien}+" "+$F{tgl_lahir}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="61" y="571" width="119" height="55" uuid="bf591e1e-ebbd-4be3-908a-a48bc8c81c93"/>
+				<imageExpression><![CDATA["https://sim.rssahabat.com/webapps/ttd/dr%20Markus.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>
